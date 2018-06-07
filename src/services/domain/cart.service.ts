@@ -46,7 +46,7 @@ export class CartService {
     increaseQuantity(produto: ProdutoDTO) : Cart {
         let cart = this.getCart();
         let position = cart.items.findIndex(x => x.produto.id == produto.id);
-        if (position != 1) {
+        if (position != -1) {
             cart.items[position].quantidade++;
         }
         this.storage.setCart(cart);
